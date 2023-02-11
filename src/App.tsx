@@ -23,7 +23,7 @@ const App = (props: AppProps) => {
 
     const items = props.valStore.items.map((item) => {
         return (
-            <Li key={item.id} id={item.id} nameHere={item.nameHere} />
+            <Li key={item.id} id={item.id} nameHere={item.nameHere} clb={props.move}/>
         )
     })
 
