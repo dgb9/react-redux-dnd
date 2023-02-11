@@ -7,6 +7,8 @@ import {Provider} from "react-redux";
 import {Action, applyMiddleware, createStore, Reducer} from "redux";
 import thunk from "redux-thunk";
 import {currentReducer} from "./reducer";
+import {HTML5Backend} from 'react-dnd-html5-backend'
+import {DndProvider} from 'react-dnd'
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
@@ -42,9 +44,11 @@ const store = createStore(currentReducer, initialStore, applyMiddleware(thunk))
 
 root.render(
     <React.StrictMode>
-        <Provider store={store}>
-            <App/>
-        </Provider>
+        <DndProvider backend={HTML5Backend}>
+            <Provider store={store}>
+                <App/>
+            </Provider>
+        </DndProvider>
     </React.StrictMode>
 );
 

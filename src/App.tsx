@@ -3,6 +3,7 @@ import {State} from "./index";
 import {Action, Dispatch} from "redux";
 import {connect} from "react-redux";
 import {ACTION_MOVE, ACTION_POSITION} from "./constants";
+import Li from "./Li";
 
 export interface AppPropsData {
     valStore: State
@@ -22,7 +23,7 @@ const App = (props: AppProps) => {
 
     const items = props.valStore.items.map((item) => {
         return (
-            <li key={item.id}><strong>{item.id}</strong> - {item.nameHere}</li>
+            <Li key={item.id} id={item.id} nameHere={item.nameHere} />
         )
     })
 
